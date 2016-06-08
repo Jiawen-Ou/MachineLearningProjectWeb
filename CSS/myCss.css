@@ -1,5 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
 
+p {
+  margin-left: 20px;
+  margin-top:20px;
+}
+
+
 body {
   background: #000000;
   position: relative;
@@ -31,8 +37,16 @@ h3, p {
 }
 
 section {
-  padding: 40px 0;
+  padding: 10px 0;
+  
+}
+
+.firSection {
   border-bottom: 1px solid #c1e1ec;
+}
+
+.lastChild {
+  border-bottom: none;
 }
 
 #web-development,
@@ -40,16 +54,14 @@ section {
   padding-bottom: 0;
 }
 
-section:last-child {
-  border-bottom: none;
-}
+
 
 .nav {
-  background: #eeeeee;
+  background: #444444;
 }
 
 .nav a {
-  color: black;
+  color: #fff;
   font-style: oblique;
   font-size: 1.2em;
 }
@@ -85,15 +97,15 @@ section:last-child {
 .nav .nav .active:hover a,
 .nav .nav .active:focus a {
   font-weight: bold;
-  padding-left: 30px;
-  border-left: 5px solid black;
+/*  padding-left: 30px;*/
+/*  border-left: 5px solid white;*/
 }
 
-.nav .nav .active span,
+/*.nav .nav .active span,
 .nav .nav .active:hover span,
 .nav .nav .active:focus span {
   display: none;
-}
+}*/
 
 .application {
   border-top: 1px solid #c1e1ec;
@@ -117,7 +129,7 @@ section:last-child {
 }
 
 footer {
-  border-top: 1px solid #c1e1ec;
+  /*border-top: 1px solid #c1e1ec;*/
   height: 50px;
 }
 

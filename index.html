@@ -30,7 +30,7 @@
 <body data-spy="scroll" data-target=".scrollspy">
   <div class="jumbotron">
     <div class="container">
-    <img src="3.png" style="display:block;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto" width="100%" height="100%">
+    <img src="img/3.png" style="display:block;margin-top:0;margin-bottom:0;margin-left:auto;margin-right:auto" width="100%" height="100%">
     </div>
   </div>
   <!--end of .jumbotron-->
@@ -40,6 +40,14 @@
 
       <div class="col-md-3 scrollspy">
         <ul id="nav" class="nav hidden-xs hidden-sm" data-spy="affix"  data-offset-top="500">
+          <li><a href="#abstract">Abstract</a>
+            <ul class="nav">
+              <li><a href="#motivation"><span class="glyphicon glyphicon-chevron-right"></span>Motivation</a></li>
+              <li><a href="#solution"><span class="glyphicon glyphicon-chevron-right"></span>Solution</a></li>
+              <li><a href="#trainingAndTesting"><span class="glyphicon glyphicon-chevron-right"></span>Training and Testing</a></li>
+              <li><a href="#keyResult"><span class="glyphicon glyphicon-chevron-right"></span>Key Result</a></li>
+            </ul>
+          </li>
           <li><a href="#projectIntroduction">Project Introduction</a>
             <ul class="nav">
               <li><a href="#background"><span class="glyphicon glyphicon-chevron-right"></span>Background</a></li>
@@ -48,115 +56,206 @@
             </ul>
           </li>
           <li><a href="#dataCollection">Data Collection</a></li>
-          <li><a href="#navieBayes">Naive Bayse</a>
+          <li><a href="#navieBayes">Naive Bayes</a>
             <ul class="nav">
-              <li><a href="#gussian"><span class="glyphicon glyphicon-chevron-right"></span>Gussian</a></li>
-              <li><a href="#multiNominal"><span class="glyphicon glyphicon-chevron-right"></span>Multi Nominal</a></li>
+              <li><a href="#gaussian"><span class="glyphicon glyphicon-chevron-right"></span>Gaussian</a></li>
+              <li><a href="#multiNominal"><span class="glyphicon glyphicon-chevron-right"></span>Multinominal</a></li>
               <li><a href="#bernoulli"><span class="glyphicon glyphicon-chevron-right"></span>Bernoulli</a></li>
             </ul>
           </li>
           <li><a href="#supportVectorMachine">Support Vector Machine</a>
-            <ul class="nav">
+<!--             <ul class="nav">
               <li><a href="#linearRegression"><span class="glyphicon glyphicon-chevron-right"></span>Linear Regression</a></li>
-            </ul>
+            </ul> -->
           </li>
           <li><a href="#decisionTree">Decision Tree</a></li>
           <li><a href="#kNearestNeighbour">K-Nearest Neighbour</a></li>
-          <li><a href="#resultGraph">Result Graph</a></li>
+          <li><a href="#resultGraph">Result</a></li>
           <li><a href="#conclusion">Conclusion</a></li>
+          <li><a href="#reference">Reference</a></li>
           <li><a href="#contactUs">Contact Us</a></li>
         </ul>
       </div>
 
       <div class="col-md-9">
+        <section class="firSection"> 
+        <h1>Smart Winner Predictor for League of Legends</h1>
+        </section>
+        <section id="abstract" class="firSection">
+          <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Abstract</h2>
+          <section id="motivation">
+            <h3>&nbsp Motivation</h3>
+            <p>League of Legends is the most popular MOBA game over the past four years for its high competitivity and excellent balance. Every player wants to win, but each one has almost identical chance of winning a match by default. However, there are inevitably several factors that will make a player more likely to win or more likely to lose, while one of the factors, the team composition, will be investigated in our project. The objective of this project is to predict the winner of a match when given the compositions of both teams. With the Smart Winner Predictor implemented, players are able to reference when picking their champions, as a result of boosting their winning rate.
+            </p>
+          </section>
+          <section id="solution">
+            <h3>&nbsp Solution</h3>
+            <p>Several learners have been tested while Naive Bayes gives the best performance and has been selected as the final learner. Due to the big champion pool of 126 champions and the high fidelity of champion selection, there can seldom be found two identical matches. Besides, every champion selection is also independent of each other, while independence is the key Assumption for Naive Bayes.
+            </p>
+          </section>
+          <section id="trainingAndTesting">
+            <h3>&nbsp Traning and Testing</h3>
+            <p>50,000 dataset instances that contain team composition and winner have been acquired using the official API of league of legends. Models have been trained based on the dataset, and the 10-folder cross-validation has been applied for validation, with Weka has been utilized as the software tool. The trained model is able to give the prediction of the winner when given compositions of both teams.
+            </p>
+          </section>
+             <section id="keyResult">
+            <h3>&nbsp Key Result</h3>
+            <p>A validation accuracy of 55.3% has been generated using general Naive Bayes while other learners generate accuracies lower than 53%. The result is overall reasonable in sense, but beyond expectation. This shows the output of the predictor has 55.3% confidence, which also means the selected team has a win rate of 55.3%. Compared to the default win rate of 50%, a 5.3% boost is satisfactory. Champion’s internal relations and players’ different levels of skills on one certain champion become the most two reason of the 55.3% accuracy. Please see Result section for detailed explanation.
+            </p>
+            <div style="text-align:center">
+            <img src="img/res.png" style="margin-top:20px" width="50%" height="50%">
+            <p>Figure 1: Accuracies of different learners</p>
+            </div>
+            <p>
+            The accuracies of all learners that have been tried are presented. Naive Bayes performs well among these learners, while General Naive Bayes gives the best accuracy. Naive Bayes is suitable for this case, because each champion selection is considered independent to each other, which is the key assumption for Naive Bayes.
+            </p>
+          </section>
+        </section>
 
-        <section id="projectIntroduction">
+        <section id="projectIntroduction" class="firSection">
           <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Project Introduction</h2>
-          <p>Project Introduction Here.
-          </p>
           <section id="background">
             <h3>&nbsp Background</h3>
-            <p>Background Here.
+            <p>League of legends has become the most popular game over the past four years. To those who are not familiar with the game, League of  Legends is an online MOBA (multiplayer online battle arena) game which two teams fight against each other, with the goal of destroying enemy team’s Nexus (an important building...). A team wins if they have successfully destroyed the enemy Nexus. Each team is made up of 5 players, and each teammate will choose a champion from the 128 Champion pool and play as the selected champion for the duration of the match. The objective of this project is to predict the winner of a match when given the compositions of both teams.
             </p>
           </section>
           <section id="whyInteresting">
             <h3>&nbsp Why Interesting</h3>
-            <p>Why Interesting.
+            <p>Since each champion is of being unique and there are so many possible combinations of champions, every match has been made exciting. Admittedly, different players are familiar different champions and own different levels of skills. Standing on the principle fairness, LOL utilizes its algorithm that assign teammates based on the same level of skills. Despite player skills that are pre-established, team composition has been commonly recognized as one of the most important factors that influences win rate. In other words, a good team composition could result in a much higher win rate against the other team, when both team players are at the same level of skills.
             </p>
           </section>
           <section id="howToImplement">
             <h3>&nbsp How to Implement</h3>
-            <p>How to Implement.
+            <p>50,000 dataset instances that contains team composition and winner have been acquired using the official API of league of legends. Based on that, several different machine learning algorithms, specifically Naive Bayes, Support Vector Machine, Decision Tree and k-Nearest Neighbour. Models have been trained based on the dataset, and the 10-folder cross-validation has been applied for validation, with Weka has been utilized as the software tool. The trained model is able to give the prediction of the winner when given compositions of both teams.
             </p>
           </section>
         </section>
 
-        <section id="dataCollection">
+        <section id="dataCollection" class="firSection">
           <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Data Collection</h2>
-          <p>Data Collection Here.
+          <p>The dataset has been acquired using Riot API with selected attributes. We specify 10 champions as the 10 attributes of a instance and a winner tag as result of a instance. We have acquired 1000 examples currently for testing purpose. Most of the instances are from division platinum or above since we expect users are relatively familiar with their selected champions, and we assume players under platnium won’t have a stable performance on selected champions that bring noise to our dataset. 50,000 instances have been acquired for testing or validation purposes.
           </p>
         </section>
 
-        <section id="navieBayes">
+        <section id="navieBayes" class="firSection">
           <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Naive Bayes</h2>
-          <p>Project Introduction Here.
+          <p>Naive Bayes methods are a set of supervised learning algorithms based on applying Bayes’ theorem with the “naive” assumption of independence between every pair of features. Given a class variable  and a dependent feature vector through , Bayes’ theorem states the following relationship:</p>
+          <div style="text-align:center">
+          <img src="img/formula.jpg" style="margin-top:15px" width="40%" height="40%">
+          </div>
+          <p>Specifically in our case, y represents the winner probability and x1 to xn serves as the given ten champions. The accuracy calculated by general Naive Bayes is 55.3%.
           </p>
-          <section id="gussian">
-            <h3>&nbsp Gussian</h3>
-            <p>Gussian Here.
+          <section id="gaussian">
+            <h3>&nbsp Gaussian</h3>
+            <p>The Gaussian Naive Bayes implements the Gaussian Naive Bayes algorithm for classification that the likelihood of the features is assumed to be Gaussian. The accuracy calculated by Gaussian Naive Bayes is 53.51%.
             </p>
           </section>
           <section id="multiNominal">
-            <h3>&nbsp Multi Nominal</h3>
-            <p>multiNominal.
+            <h3>&nbsp Multinominal</h3>
+            <p>The Multinomial Naive Bayes implements the naive Bayes algorithm for multinomially distributed data, and is one of the two classic naive Bayes variants used in text classification (where the data are typically represented as word vector counts, although tf-idf vectors are also known to work well in practice). The accuracy calculated by Gaussian Naive Bayes is 54.3%.
             </p>
           </section>
           <section id="bernoulli">
             <h3>&nbsp Bernoulli</h3>
-            <p>bernoulli.
+            <p>The Bernoulli Naive Bayes implements the naive Bayes training and classification algorithms for data that is distributed according to multivariate Bernoulli distributions. The accuracy calculated by Bernoulli Naive Bayes is 53.45%.
             </p>
           </section>
         </section>
 
-        <section id="supportVectorMachine">
+        <section id="supportVectorMachine" class="firSection">
           <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Support Vector Machine</h2>
-          <p>Project Introduction Here.
+          <p>The model produced by support vector classification (as described above) depends only on a subset of the training data, because the cost function for building the model does not care about training points that lie beyond the margin. Analogously, the model produced by Support Vector Regression depends only on a subset of the training data, because the cost function for building the model ignores any training data close to the model prediction.
+          <br> <br>
+          In our implementation, we created vector C = [C1, C2, …, C126] representing the 126 champions. When a champion, for example C10, has been selected by players from team 1, C10 becomes 1 in C; when it is selected by team 2, C10 becomes -1 instead. All champions unselected will be left at 0. The accuracy calculated by SVM is 50.5%.
           </p>
-          <section id="linearRegression">
-            <h3>&nbsp Linear Regression</h3>
-            <p>Linear Regression Here.
-            </p>
-          </section>
         </section>
 
-        <section id="decisionTree">
+        <section id="decisionTree" class="firSection">
           <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Decision Tree</h2>
-          <p>Decision Tree Here.
+          <p>Decision Tree is one of the simplest machine learning model that has been yet developed. Attributes of the ten champions will be set as nominal as well as the winner output. The tree will then be generated from datasets, and pruned afterwards. The accuracy calculated by Decision Tree is 52.40%.
           </p>
         </section>
 
-        <section id="kNearestNeighbour">
+        <section id="kNearestNeighbour" class="firSection">
           <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp K-Nearest Neighbour</h2>
-          <p>kNearestNeighbour Here.
+          <p>K-Nearest neighbor is the instance based learning that identify instances locally in distance. However, since all attributes in our datasets are nominal that doesn’t own a distance, K-Nearest Neighbor does perform poorly. The accuracy calculated by K-Nearest Neighbor is 50.58%.
           </p>
         </section>
 
-        <section id="resultGraph">
-          <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Result Graph</h2>
-          <p>Graph Here.
+        <section id="resultGraph" class="firSection">
+          <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Result</h2>
+          <p>The result accuracies given by each learner have been presented in Figure 1, and the highest accuracy is given by General Naive Bayes as 55.3%. It is noticeable that all learners don’t perform well on the dataset. The objective and subjective reasons are listed below.
+          <br> <br>
+          First of all, although all champions are picked independently, the internal relationships between champions do affect the accuracy. It is also noticed when analyzing only one champion versus the other champion (ignoring the rest four attributes of each team), the accuracy can reach up to 87% compared to 55.3%; but when more attributes (champions) are introduced, accuracy goes down not only due to the model complexity but also for some internal relations within champion selection. Let’s take an example for illustration, the accuracy of Malphite vs MordeKaiser is 74% in favor of MordeKaiser; however when an additional attribute, Orianna has been introduced; the accuracy of Malphite + Orianna vs Vladimir decrease to 65%. Malphite is very weak against MordeKaiser, but the internal relation between Malphite and Orianna boosts the win rate for Malphite since they two cooperates very well.  It is also foreseened that when even more attributes are introduced, the accuracy will continue changing. 
+          <br> <br>
+          Secondly, the accuracy will eventually drop to close to 50% when players picking champions. Because of these internal relationships, players will select their champions that best boost win rate; when all players are trying to do that, the match reach balanced and win rate of each team will eventually be close to 50%. This will also give an accuracy close to 50%.
+          <br> <br>
+          Last but not least, the subjective reason, that players own different levels of skills on certain champions, affects the accuracy. When assembling teams, League of Legends does not consider player’s skill at certain champion but their overall skills. However, even when using the same champion against the same enemy champion, different players will give out different performances, leading to either winning or losing output. 
+          <br> <br>
+          Considering the three factors above, it is really hard to achieve a good accuracy (over 60%) when analyzing only team compositions to predict results. 
           </p>
         </section>
 
-        <section id="conclusion">
+        <section id="conclusion" class="firSection">
           <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Conclusion</h2>
-          <p>conclusion Here.
+          <p>This project focuses on the predicting the winner when given team compositions. It turns out that the highest accuracy is only as high as 55.3% given by Naive Bayes after trying several different learners. Among all machine learners, Naive Bayes performs the best because all champion picks are independent to each other. However, the accuracy is not high because of the internal relations between champions, as well as player’s different level of skills on the same champion. Considering the default value of 50%, a 5.3% boost is a good start on machine learning investigations of this topic. For future improvements, player’s personal skills on certain champions shall also be implemented as an attribute when predicting the result. The internal relationships between champions may also be considered as attributes for future implementations.
           </p>
         </section>
 
-        <section id="contactUs">
-          <h2><span class="glyphicon glyphicon-education" style="margin-bottom:20px"></span>&nbsp&nbsp Contact Us</h2>
-          <h4>&nbsp&nbsp&nbsp&nbsp<span class="glyphicon glyphicon-user" style="color:#fff"></span></h4>
+        <section id="reference" class="firSection">
+          <h2><span class="glyphicon glyphicon-education"></span>&nbsp&nbsp Reference</h2>
+          <p>1. Riot API:&nbsp&nbsp<a href="https://developer.riotgames.com" target="_blank">https://developer.riotgames.com</a>.
+             <br><br>
+             2. Yuling Shen is in charge of the data acquisition. Both Siran Liu and Jiawen Ou work on the machine learner implementations and website design.
+
           </p>
+        </section>
+
+        <section id="contactUs" class="lastChild">
+          <h2><span class="glyphicon glyphicon-education" style="margin-bottom:20px"></span>&nbsp&nbsp Contact Us</h2>
+
+          <div class="row">
+            <div class="col-sm-1">
+              <p><span class="glyphicon glyphicon-user" style="color:#fff"></span></p>
+            </div>
+            <div class="col-sm-2">
+              <p>Siran Liu</p>
+            </div>
+            <div class="col-sm-4">
+              <p>M.S. in Computer Science</p>
+            </div>
+            <div class="col-sm-3">
+              <p>siranliu2016@u.northwestern.edu</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1">
+              <p><span class="glyphicon glyphicon-user" style="color:#fff"></span></p>
+            </div>
+            <div class="col-sm-2">
+              <p>Jiawen Ou</p>
+            </div>
+            <div class="col-sm-4">
+              <p>M.S. in Computer Science</p>
+            </div>
+            <div class="col-sm-3">
+              <p>jiawenou2016@u.northwestern.edu</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1">
+              <p><span class="glyphicon glyphicon-user" style="color:#fff"></span></p>
+            </div>
+            <div class="col-sm-2">
+              <p>Yuling Shen</p>
+            </div>
+            <div class="col-sm-4">
+              <p>M.S. in Mechanical Engineering</p>
+            </div>
+            <div class="col-sm-3">
+              <p>yulingshen2017@u.northwestern.edu</p>
+            </div>
+          </div>
         </section>
 
        
